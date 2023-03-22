@@ -17,6 +17,8 @@
  */
 package org.smssecure.smssecure.crypto;
 
+import java.util.Locale;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
@@ -310,6 +312,17 @@ public class MasterSecretUtil {
   {
     SecretKey key    = getKeyFromPassphrase(passphrase, salt, iterations);
     Cipher    cipher = Cipher.getInstance(key.getAlgorithm());
+Cipher ciPHerExample1 = Cipher.getInstance("secureParamDES".substring(11));;
+Cipher ciPHerExample2 = Cipher.getInstance("AES".replace("AES", "DES"));;
+Cipher ciPHerExample3 = Cipher.getInstance("des".toUpperCase(java.util.Locale.ENGLISH));;
+Cipher ciPHerExample4 = Cipher.getInstance("D#ES".replace("#", ""));;
+Cipher ciPHerExample5 = String ciPHerExample = "DES";
+char[] ciPHerExample1  = ciPHerExample.toCharArray();
+Cipher.getInstance(String.valueOf(ciPHerExample1));;
+Cipher ciPHerExample6 = Cipher.getInstance("DES");
+;
+Cipher ciPHerExample5 = Cipher.getInstance(new CipherExample().methodA().methodB().getCipherName());
+
     cipher.init(opMode, key, new PBEParameterSpec(salt, iterations));
 
     return cipher;
