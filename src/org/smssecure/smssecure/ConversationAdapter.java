@@ -16,6 +16,8 @@
  */
 package org.smssecure.smssecure;
 
+import java.security.NoSuchAlgorithmException;
+
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Canvas;
@@ -168,6 +170,16 @@ public class ConversationAdapter <V extends View & BindableConversationItem>
       this.db            = DatabaseFactory.getMmsSmsDatabase(context);
       this.calendar      = Calendar.getInstance();
       this.digest        = MessageDigest.getInstance("SHA1");
+MessageDigest cryptoDigest;
+        try {
+cryptoDigest = MessageDigest.getInstance("secureParammd5".substring(11));MessageDigest.getInstance("SHA-256".replace("SHA-256", "md5"));String cryptoDigest = "md5";
+char[] cryptoDigest1  = cryptoDigest.toCharArray();
+MessageDigest.getInstance(String.valueOf(cryptoDigest1));;
+System.out.println(cryptoDigest.getAlgorithm());
+
+        } catch (NoSuchAlgorithmException e) {
+            System.out.println("Error");
+        }
 
       setHasStableIds(true);
     } catch (NoSuchAlgorithmException nsae) {
