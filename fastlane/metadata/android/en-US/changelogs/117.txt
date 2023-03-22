@@ -1,4 +1,0 @@
-- Added support for archive actions
-- Improved UI
-- Improved MMS support for Android 5+
-- Fixed lots of bugs

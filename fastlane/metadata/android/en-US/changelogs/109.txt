@@ -1,4 +1,0 @@
-- Added GIF support
-- Added new options
-- Fixed bugs
-- Updated translations

@@ -1,3 +1,0 @@
-- Fixed crash on Gingerbread
-- Fixed some issues with RTL languages
-- Updated translations

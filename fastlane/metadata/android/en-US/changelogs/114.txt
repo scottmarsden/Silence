@@ -1,4 +1,0 @@
-- Added MMS download controls
-- Improved MMS requests
-- Fixed bugs
-- Updated translations

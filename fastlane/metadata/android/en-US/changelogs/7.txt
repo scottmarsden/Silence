@@ -1,2 +1,0 @@
-- Fixed bugs
-- Removed TextSecure push-related code and strings

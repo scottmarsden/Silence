@@ -1,2 +1,0 @@
-- Fixed notification lights with encrypted messages
-- Updated translations

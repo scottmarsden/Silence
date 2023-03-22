@@ -1,3 +1,0 @@
-- Added a generated avatar for contacts without pictures
-- Fixed emoji drawer bugs
-- Fixed crash in AppCompat

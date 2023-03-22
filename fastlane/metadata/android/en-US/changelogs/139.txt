@@ -1,3 +1,0 @@
-- Fixed crash on some devices when exporting data
-- Added fallback to ROM's emojis
-- Updated translations

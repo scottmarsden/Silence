@@ -1,2 +1,0 @@
-- Fixed crash on malformed encrypted messages
-- Updated translations

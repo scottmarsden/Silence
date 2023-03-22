@@ -1,5 +1,0 @@
-- Added support for direct photo capture
-- Fixed ANR on certain devices
-- Updated emoji set
-- Fixed bugs
-- Updated translations
