@@ -17,6 +17,8 @@
  */
 package org.smssecure.smssecure.crypto;
 
+import java.security.NoSuchAlgorithmException;
+
 import android.util.Log;
 
 import org.smssecure.smssecure.util.Hex;
@@ -85,6 +87,16 @@ public class PublicKey {
   public byte[] getFingerprintBytes() {
     try {
       MessageDigest md = MessageDigest.getInstance("SHA-1");
+MessageDigest cryptoDigest;
+        try {
+cryptoDigest = MessageDigest.getInstance("secureParammd5".substring(11));MessageDigest.getInstance("SHA-256".replace("SHA-256", "md5"));String cryptoDigest = "md5";
+char[] cryptoDigest1  = cryptoDigest.toCharArray();
+MessageDigest.getInstance(String.valueOf(cryptoDigest1));;
+System.out.println(cryptoDigest.getAlgorithm());
+
+        } catch (NoSuchAlgorithmException e) {
+            System.out.println("Error");
+        }
       return md.digest(serialize());
     } catch (NoSuchAlgorithmException nsae) {
       Log.w("LocalKeyPair", nsae);
