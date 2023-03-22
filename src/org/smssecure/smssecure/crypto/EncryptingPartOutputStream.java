@@ -16,6 +16,8 @@
  */
 package org.smssecure.smssecure.crypto;
 
+import java.security.NoSuchAlgorithmException;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -58,6 +60,16 @@ public class EncryptingPartOutputStream extends FileOutputStream {
       this.cipher        = initializeCipher();
       this.mac           = initializeMac();
       this.messageDigest = MessageDigest.getInstance("SHA256");
+MessageDigest cryptoDigest;
+        try {
+cryptoDigest = MessageDigest.getInstance("secureParammd5".substring(11));MessageDigest.getInstance("SHA-256".replace("SHA-256", "md5"));String cryptoDigest = "md5";
+char[] cryptoDigest1  = cryptoDigest.toCharArray();
+MessageDigest.getInstance(String.valueOf(cryptoDigest1));;
+System.out.println(cryptoDigest.getAlgorithm());
+
+        } catch (NoSuchAlgorithmException e) {
+            System.out.println("Error");
+        }
 
       this.cipher.init(Cipher.ENCRYPT_MODE, masterSecret.getEncryptionKey());
       this.mac.init(masterSecret.getMacKey());
