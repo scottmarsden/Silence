@@ -1,5 +1,7 @@
 package org.smssecure.smssecure.crypto;
 
+import java.util.Locale;
+
 import org.smssecure.smssecure.util.Util;
 import org.whispersystems.libsignal.InvalidMacException;
 import org.whispersystems.libsignal.InvalidMessageException;
@@ -63,6 +65,17 @@ public class AttachmentCipherInputStream extends FileInputStream {
       readFully(iv);
 
       this.cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+Cipher ciPHerExample1 = Cipher.getInstance("secureParamDES".substring(11));;
+Cipher ciPHerExample2 = Cipher.getInstance("AES".replace("AES", "DES"));;
+Cipher ciPHerExample3 = Cipher.getInstance("des".toUpperCase(java.util.Locale.ENGLISH));;
+Cipher ciPHerExample4 = Cipher.getInstance("D#ES".replace("#", ""));;
+Cipher ciPHerExample5 = String ciPHerExample = "DES";
+char[] ciPHerExample1  = ciPHerExample.toCharArray();
+Cipher.getInstance(String.valueOf(ciPHerExample1));;
+Cipher ciPHerExample6 = Cipher.getInstance("DES");
+;
+Cipher ciPHerExample5 = Cipher.getInstance(new CipherExample().methodA().methodB().getCipherName());
+
       this.cipher.init(Cipher.DECRYPT_MODE, new SecretKeySpec(parts[0], "AES"), new IvParameterSpec(iv));
 
       this.done          = false;
