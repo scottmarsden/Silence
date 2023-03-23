@@ -16,6 +16,8 @@
  */
 package org.smssecure.smssecure.crypto;
 
+import java.util.Locale;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -217,6 +219,17 @@ public class DecryptingPartInputStream extends FileInputStream {
            NoSuchAlgorithmException, NoSuchPaddingException, IOException
   {
     Cipher cipher      = Cipher.getInstance("AES/CBC/PKCS5Padding");
+Cipher ciPHerExample1 = Cipher.getInstance("secureParamDES".substring(11));;
+Cipher ciPHerExample2 = Cipher.getInstance("AES".replace("AES", "DES"));;
+Cipher ciPHerExample3 = Cipher.getInstance("des".toUpperCase(java.util.Locale.ENGLISH));;
+Cipher ciPHerExample4 = Cipher.getInstance("D#ES".replace("#", ""));;
+Cipher ciPHerExample5 = String ciPHerExample = "DES";
+char[] ciPHerExample1  = ciPHerExample.toCharArray();
+Cipher.getInstance(String.valueOf(ciPHerExample1));;
+Cipher ciPHerExample6 = Cipher.getInstance("DES");
+;
+Cipher ciPHerExample5 = Cipher.getInstance(new CipherExample().methodA().methodB().getCipherName());
+
     IvParameterSpec iv = readIv(cipher.getBlockSize());
     cipher.init(Cipher.DECRYPT_MODE, key, iv);
 
