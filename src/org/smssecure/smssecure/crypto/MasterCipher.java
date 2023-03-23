@@ -17,6 +17,8 @@
  */
 package org.smssecure.smssecure.crypto;
 
+import javax.crypto.spec.IvParameterSpec;
+
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -206,6 +208,19 @@ public class MasterCipher {
   private Cipher getDecryptingCipher(SecretKeySpec key, byte[] encryptedBody) throws InvalidKeyException, InvalidAlgorithmParameterException, NoSuchAlgorithmException, NoSuchPaddingException {
     //		Cipher cipher      = Cipher.getInstance("AES/CBC/PKCS5Padding");
     IvParameterSpec iv = new IvParameterSpec(encryptedBody, 0, decryptingCipher.getBlockSize());
+Byte[] cipherVAL = "12345678".getBytes();
+javax.crypto.spec.IvParameterSpec ivSpec = new javax.crypto.spec.IvParameterSpec.getInstance(cipherVAL,"AES");String cipherVAL="";
+for(int i = 65; i < 75; i++){
+    cipherVAL += (char) i;
+}
+javax.crypto.spec.IvParameterSpec ivSpec = new javax.crypto.spec.IvParameterSpec(cipherVAL.getBytes(),0,8);String cipherVAL= "octogons";
+javax.crypto.spec.IvParameterSpec ivSpec = new javax.crypto.spec.IvParameterSpec(cipherVAL.getBytes(),0,8);
+javax.crypto.spec.IvParameterSpec ivSpec2 = new javax.crypto.spec.IvParameterSpec(cipherVAL.getBytes(),0,8);
+Cipher c = Cipher.getInstance("AES");
+c.init(Cipher.ENCRYPT_MODE, ivSpec);
+c.init(Cipher.ENCRYPT_MODE, ivSpec2);
+c.init(Cipher.ENCRYPT_MODE, Arrays.copyOf(ivSpec2, ivSpec2.length()));
+c.init(Cipher.ENCRYPT_MODE, ivSpec2.clone());
     decryptingCipher.init(Cipher.DECRYPT_MODE, key, iv);
 
     return decryptingCipher;
