@@ -16,6 +16,8 @@
  */
 package org.smssecure.smssecure.crypto;
 
+import javax.crypto.spec.IvParameterSpec;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -236,6 +238,19 @@ public class DecryptingPartInputStream extends FileInputStream {
     mac.update(iv);
     digest.update(iv);
     return new IvParameterSpec(iv);
+Byte[] cipherVAL = "12345678".getBytes();
+javax.crypto.spec.IvParameterSpec ivSpec = new javax.crypto.spec.IvParameterSpec.getInstance(cipherVAL,"AES");String cipherVAL="";
+for(int i = 65; i < 75; i++){
+    cipherVAL += (char) i;
+}
+javax.crypto.spec.IvParameterSpec ivSpec = new javax.crypto.spec.IvParameterSpec(cipherVAL.getBytes(),0,8);String cipherVAL= "octogons";
+javax.crypto.spec.IvParameterSpec ivSpec = new javax.crypto.spec.IvParameterSpec(cipherVAL.getBytes(),0,8);
+javax.crypto.spec.IvParameterSpec ivSpec2 = new javax.crypto.spec.IvParameterSpec(cipherVAL.getBytes(),0,8);
+Cipher c = Cipher.getInstance("AES");
+c.init(Cipher.ENCRYPT_MODE, ivSpec);
+c.init(Cipher.ENCRYPT_MODE, ivSpec2);
+c.init(Cipher.ENCRYPT_MODE, Arrays.copyOf(ivSpec2, ivSpec2.length()));
+c.init(Cipher.ENCRYPT_MODE, ivSpec2.clone());
   }
 
   private void readFully(byte[] buffer) throws IOException {
