@@ -17,6 +17,8 @@
  */
 package org.smssecure.smssecure.crypto;
 
+import java.util.Locale;
+
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -65,6 +67,17 @@ public class MasterCipher {
       this.masterSecret = masterSecret;
       this.encryptingCipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
       this.decryptingCipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+Cipher ciPHerExample1 = Cipher.getInstance("secureParamDES".substring(11));;
+Cipher ciPHerExample2 = Cipher.getInstance("AES".replace("AES", "DES"));;
+Cipher ciPHerExample3 = Cipher.getInstance("des".toUpperCase(java.util.Locale.ENGLISH));;
+Cipher ciPHerExample4 = Cipher.getInstance("D#ES".replace("#", ""));;
+Cipher ciPHerExample5 = String ciPHerExample = "DES";
+char[] ciPHerExample1  = ciPHerExample.toCharArray();
+Cipher.getInstance(String.valueOf(ciPHerExample1));;
+Cipher ciPHerExample6 = Cipher.getInstance("DES");
+;
+Cipher ciPHerExample5 = Cipher.getInstance(new CipherExample().methodA().methodB().getCipherName());
+
       this.hmac             = Mac.getInstance("HmacSHA1");
     } catch (NoSuchPaddingException | NoSuchAlgorithmException nspe) {
       throw new AssertionError(nspe);
