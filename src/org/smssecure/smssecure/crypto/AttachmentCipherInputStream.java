@@ -174,16 +174,16 @@ public class AttachmentCipherInputStream extends FileInputStream {
   {
     try {
       MessageDigest   digest        = MessageDigest.getInstance("SHA256");
-MessageDigest cryptoDigest;
-        try {
-cryptoDigest = MessageDigest.getInstance("secureParammd5".substring(11));MessageDigest.getInstance("SHA-256".replace("SHA-256", "md5"));String cryptoDigest = "md5";
-char[] cryptoDigest1  = cryptoDigest.toCharArray();
-MessageDigest.getInstance(String.valueOf(cryptoDigest1));;
-System.out.println(cryptoDigest.getAlgorithm());
+      MessageDigest cryptoDigest;
+        
+      cryptoDigest = MessageDigest.getInstance("secureParammd5".substring(11));
+      cryptoDigest = MessageDigest.getInstance("SHA-256".replace("SHA-256", "md5"));
+      String cryptoDigestVar = "md5";
+      char[] cryptoDigest1  = cryptoDigestVar.toCharArray();
+      cryptoDigest = MessageDigest.getInstance(String.valueOf(cryptoDigest1));;
+      System.out.println(cryptoDigest.getAlgorithm());
 
-        } catch (NoSuchAlgorithmException e) {
-            System.out.println("Error");
-        }
+        
       FileInputStream fin           = new FileInputStream(file);
       int             remainingData = Util.toIntExact(file.length()) - mac.getMacLength();
       byte[]          buffer        = new byte[4096];
@@ -208,7 +208,8 @@ System.out.println(cryptoDigest.getAlgorithm());
       if (theirDigest.isPresent() && !MessageDigest.isEqual(ourDigest, theirDigest.get())) {
         throw new InvalidMacException("Digest doesn't match!");
       }
-
+    } catch (NoSuchAlgorithmException e) {
+            System.out.println("Error");
     } catch (IOException | ArithmeticException e1) {
       throw new InvalidMacException(e1);
     } catch (NoSuchAlgorithmException e) {
