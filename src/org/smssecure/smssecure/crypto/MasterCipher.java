@@ -208,14 +208,16 @@ public class MasterCipher {
   private Cipher getDecryptingCipher(SecretKeySpec key, byte[] encryptedBody) throws InvalidKeyException, InvalidAlgorithmParameterException, NoSuchAlgorithmException, NoSuchPaddingException {
     //		Cipher cipher      = Cipher.getInstance("AES/CBC/PKCS5Padding");
     IvParameterSpec iv = new IvParameterSpec(encryptedBody, 0, decryptingCipher.getBlockSize());
-Byte[] cipherVAL = "12345678".getBytes();
-javax.crypto.spec.IvParameterSpec ivSpec = new javax.crypto.spec.IvParameterSpec.getInstance(cipherVAL,"AES");String cipherVAL="";
+byte[] cipherVAL = "12345678".getBytes();
+javax.crypto.spec.IvParameterSpec ivSpec = new IvParameterSpec(cipherVAL,0,8);
+    String cipherVAL1="";
 for(int i = 65; i < 75; i++){
-    cipherVAL += (char) i;
+    cipherVAL1 += (char) i;
 }
-javax.crypto.spec.IvParameterSpec ivSpec = new javax.crypto.spec.IvParameterSpec(cipherVAL.getBytes(),0,8);String cipherVAL= "octogons";
-javax.crypto.spec.IvParameterSpec ivSpec = new javax.crypto.spec.IvParameterSpec(cipherVAL.getBytes(),0,8);
-javax.crypto.spec.IvParameterSpec ivSpec2 = new javax.crypto.spec.IvParameterSpec(cipherVAL.getBytes(),0,8);
+IvParameterSpec ivSpec = new IvParameterSpec(cipherVAL1.getBytes(),0,8);
+    String cipherVAL= "octogons";
+IvParameterSpec ivSpec = new IvParameterSpec(cipherVAL1.getBytes(),0,8);
+IvParameterSpec ivSpec2 = new IvParameterSpec(cipherVAL1.getBytes(),0,8);
 Cipher c = Cipher.getInstance("AES");
 c.init(Cipher.ENCRYPT_MODE, ivSpec);
 c.init(Cipher.ENCRYPT_MODE, ivSpec2);
