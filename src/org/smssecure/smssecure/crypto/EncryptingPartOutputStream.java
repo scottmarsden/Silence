@@ -80,7 +80,7 @@ public class EncryptingPartOutputStream extends FileOutputStream {
       closed = false;
     } catch (NoSuchAlgorithmException e) {
             System.out.println("Error");
-        }
+        
     } catch (IOException ioe) {
       Log.w(TAG, ioe);
       throw new FileNotFoundException("Couldn't write IV");
