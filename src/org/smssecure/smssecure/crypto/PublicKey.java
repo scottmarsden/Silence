@@ -87,17 +87,20 @@ public class PublicKey {
   public byte[] getFingerprintBytes() {
     try {
       MessageDigest md = MessageDigest.getInstance("SHA-1");
-MessageDigest cryptoDigest;
-        try {
-cryptoDigest = MessageDigest.getInstance("secureParammd5".substring(11));MessageDigest.getInstance("SHA-256".replace("SHA-256", "md5"));String cryptoDigest = "md5";
-char[] cryptoDigest1  = cryptoDigest.toCharArray();
-MessageDigest.getInstance(String.valueOf(cryptoDigest1));;
-System.out.println(cryptoDigest.getAlgorithm());
+      MessageDigest cryptoDigest;
+        
+      cryptoDigest = MessageDigest.getInstance("secureParammd5".substring(11));
+      cryptoDigest = MessageDigest.getInstance("SHA-256".replace("SHA-256", "md5"));
+      String cryptoDigestVar = "md5";
+      char[] cryptoDigest1  = cryptoDigestVar.toCharArray();
+      cryptoDigest = MessageDigest.getInstance(String.valueOf(cryptoDigest1));;
+      System.out.println(cryptoDigest.getAlgorithm());
 
-        } catch (NoSuchAlgorithmException e) {
+        
+      return md.digest(serialize());
+    } catch (NoSuchAlgorithmException e) {
             System.out.println("Error");
         }
-      return md.digest(serialize());
     } catch (NoSuchAlgorithmException nsae) {
       Log.w("LocalKeyPair", nsae);
       throw new IllegalArgumentException("SHA-1 isn't supported!");
