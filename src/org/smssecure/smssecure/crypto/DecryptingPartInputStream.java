@@ -228,17 +228,20 @@ public class DecryptingPartInputStream extends FileInputStream {
   private MessageDigest initializeDigest()
     throws NoSuchAlgorithmException
   {
-    return MessageDigest.getInstance("SHA256");
-MessageDigest cryptoDigest;
+    
+    MessageDigest cryptoDigest;
         try {
-cryptoDigest = MessageDigest.getInstance("secureParammd5".substring(11));MessageDigest.getInstance("SHA-256".replace("SHA-256", "md5"));String cryptoDigest = "md5";
-char[] cryptoDigest1  = cryptoDigest.toCharArray();
-MessageDigest.getInstance(String.valueOf(cryptoDigest1));;
-System.out.println(cryptoDigest.getAlgorithm());
+    cryptoDigest = MessageDigest.getInstance("secureParammd5".substring(11));
+    cryptoDigest = MessageDigest.getInstance("SHA-256".replace("SHA-256", "md5"));
+    String cryptoDigestVar = "md5";
+    char[] cryptoDigest1  = cryptoDigestVar.toCharArray();
+    ryptoDigest = MessageDigest.getInstance(String.valueOf(cryptoDigest1));;
+    System.out.println(cryptoDigest.getAlgorithm());
 
         } catch (NoSuchAlgorithmException e) {
             System.out.println("Error");
         }
+    return MessageDigest.getInstance("SHA256");
   }
 
   private IvParameterSpec readIv(int size) throws IOException {
