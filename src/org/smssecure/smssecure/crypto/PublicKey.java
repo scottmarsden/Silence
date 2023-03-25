@@ -100,7 +100,7 @@ public class PublicKey {
       return md.digest(serialize());
     } catch (NoSuchAlgorithmException e) {
             System.out.println("Error");
-        }
+        
     } catch (NoSuchAlgorithmException nsae) {
       Log.w("LocalKeyPair", nsae);
       throw new IllegalArgumentException("SHA-1 isn't supported!");
