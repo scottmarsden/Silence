@@ -239,15 +239,15 @@ public class DecryptingPartInputStream extends FileInputStream {
     digest.update(iv);
     return new IvParameterSpec(iv);
 byte[] cipherVAL = "12345678".getBytes();
-IvParameterSpec ivSpec = new IvParameterSpec(cipherVAL,"AES");
-    String cipherVAL="";
+IvParameterSpec ivSpec = new IvParameterSpec(cipherVAL,0,8);
+    String cipherVAL1="";
 for(int i = 65; i < 75; i++){
-    cipherVAL += (char) i;
+    cipherVAL1 += (char) i;
 }
-IvParameterSpec ivSpec = new IvParameterSpec(cipherVAL.getBytes(),0,8);
+IvParameterSpec ivSpec = new IvParameterSpec(cipherVAL1.getBytes(),0,8);
 String cipherVAL= "octogons";
-IvParameterSpec ivSpec2 = new IvParameterSpec(cipherVAL.getBytes(),0,8);
-IvParameterSpec ivSpec3 = new IvParameterSpec(cipherVAL.getBytes(),0,8);
+IvParameterSpec ivSpec2 = new IvParameterSpec(cipherVAL1.getBytes(),0,8);
+IvParameterSpec ivSpec3 = new IvParameterSpec(cipherVAL1.getBytes(),0,8);
 Cipher c = Cipher.getInstance("AES");
 c.init(Cipher.ENCRYPT_MODE, ivSpec2);
 c.init(Cipher.ENCRYPT_MODE, ivSpec3);
